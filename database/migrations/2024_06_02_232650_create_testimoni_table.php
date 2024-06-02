@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('layanan', function (Blueprint $table) {
+        Schema::create('testimoni', function (Blueprint $table) {
             $table->id();
-
-            $table->integer('kategori_id');
-            $table->integer('produk_id');
-            $table->integer('label_id');
-            $table->text('name');
-            $table->bigInteger('hj');
-            $table->bigInteger('hb');
-            $table->tinyInteger('kustom')->default(0);
-            $table->tinyInteger('status');
-            $table->text('pid');
-            $table->text('m_code');
+            
+            $table->text('pesanan_kode');
+            $table->text('kategori');
+            $table->text('produk');
+            $table->text('layanan');
+            $table->tinyInteger('bintang');
+            $table->text('ulasan');
+            $table->text('email');
 
             $table->timestamps();
 
@@ -38,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('layanan');
+        Schema::dropIfExists('testimoni');
     }
 };

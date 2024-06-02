@@ -11,19 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('layanan', function (Blueprint $table) {
+        Schema::create('populer', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('kategori_id');
             $table->integer('produk_id');
-            $table->integer('label_id');
-            $table->text('name');
-            $table->bigInteger('hj');
-            $table->bigInteger('hb');
-            $table->tinyInteger('kustom')->default(0);
-            $table->tinyInteger('status');
-            $table->text('pid');
-            $table->text('m_code');
+            $table->tinyInteger('urutan');
 
             $table->timestamps();
 
@@ -38,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('layanan');
+        Schema::dropIfExists('populer');
     }
 };

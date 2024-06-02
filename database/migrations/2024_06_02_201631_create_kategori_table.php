@@ -20,6 +20,10 @@ return new class extends Migration
             $table->tinyInteger('urutan');
             
             $table->timestamps();
+
+            $table->string('created_by')->default('system');
+            $table->text('updated_by')->default(null)->nullable();
+            $table->tinyInteger('deleted')->default(0);
         });
     }
 

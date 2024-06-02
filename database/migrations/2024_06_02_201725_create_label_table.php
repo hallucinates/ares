@@ -17,10 +17,14 @@ return new class extends Migration
             $table->integer('kategori_id');
             $table->integer('produk_id');
             $table->text('name');
-            $table->text('image')->nullable();
+            $table->text('image')->default(null)->nullable();
             $table->tinyInteger('urutan');
 
             $table->timestamps();
+
+            $table->string('created_by')->default('system');
+            $table->text('updated_by')->default(null)->nullable();
+            $table->tinyInteger('deleted')->default(0);
         });
     }
 

@@ -11,19 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('layanan', function (Blueprint $table) {
+        Schema::create('master_layanan', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('kategori_id');
-            $table->integer('produk_id');
-            $table->integer('label_id');
-            $table->text('name');
-            $table->bigInteger('hj');
-            $table->bigInteger('hb');
-            $table->tinyInteger('kustom')->default(0);
-            $table->tinyInteger('status');
-            $table->text('pid');
             $table->text('m_code');
+            $table->text('m_server')->default(null)->nullable();
+            $table->text('code');
+            $table->text('brand');
+            $table->text('name');
+            $table->bigInteger('price_basic');
+            $table->bigInteger('price_premium');
+            $table->bigInteger('price_special');
+            $table->text('server')->default(null)->nullable();
+            $table->text('status');
+            $table->tinyInteger('tipe');
 
             $table->timestamps();
 
@@ -38,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('layanan');
+        Schema::dropIfExists('master_layanan');
     }
 };
